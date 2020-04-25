@@ -2,12 +2,8 @@
 This application calculates area of geometric figures
 I used object oriented programming
 
-
-
-
-
-
-``` using System;
+``` 
+using System;
 namespace Abstract_Shape
 {
 
@@ -161,5 +157,6 @@ namespace Abstract_Shape
             Console.ReadKey();
         }
     }
-}```
+}
+```
 
