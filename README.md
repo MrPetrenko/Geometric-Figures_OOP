@@ -4,6 +4,7 @@ I used object oriented programming
 
 ``` 
 using System;
+
 namespace Abstract_Shape
 {
 
@@ -16,17 +17,11 @@ namespace Abstract_Shape
 
     class Square : Shape
     {
-        int _side;
-        
-        public Square(int Side)      
-        {
-            _side = Side;
-        }
+        public int Side { get; set; }
 
-        public int Side
+        public Square(int side)      
         {
-            set { _side = value; }
-            get { return _side; }
+            Side = side;
         }
 
         public override void SetData()
@@ -48,25 +43,13 @@ namespace Abstract_Shape
 
     class Rectangle : Shape
     {
-        float _height;
-        float _width;
+        public float Height { get; set; }
+        public float Width { get; set; }
 
-        public Rectangle(float Height, float Width) 
+        public Rectangle(float height, float width) 
         {
-            _height = Height;
-            _width = Width;
-        }
-
-        public float Height
-        {
-            set { _height = value; }
-            get { return _height; }
-        }
-
-        public float Width
-        {
-            set { _width = value; }
-            get { return _width; }
+            Height = height;
+            Width = width;
         }
 
         public override void SetData()
@@ -91,33 +74,27 @@ namespace Abstract_Shape
 
     class Circle : Shape
     {
-        float _radius;
-
-        public Circle (float Radius) 
+        public float Radius { get; set; }
+     
+        public Circle (float radius) 
         {
-            _radius = Radius;
-        }
-
-        public float Radius
-        {
-            set { _radius = value; }
-            get { return _radius; }
+            Radius = radius;
         }
 
         public override void SetData()
         {
-            Console.WriteLine("enter radius... ");
+            Console.WriteLine("Enter radius... ");
             Radius = Convert.ToSingle(Console.ReadLine());
         }
 
         public override void CalculatePerimetr()
         {
-            Console.WriteLine($"Perimetr`s circle {2 * System.Math.PI * Radius}");
+            Console.WriteLine($"Perimetr`s circle {2 * Math.PI * Radius}");
         }
 
         public override void CalculateArea()
         {
-            Console.WriteLine($"Area`s circle {System.Math.PI * (Radius * Radius)}");
+            Console.WriteLine($"Area`s circle {Math.PI * (Radius * Radius)}");
         }
     }
 
@@ -127,14 +104,16 @@ namespace Abstract_Shape
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Green;
+            
+            Console.WriteLine("Hello!");
 
             Shape[] figure = new Shape[10];
             int i = 0;
 
-            string exit = "";
+            string exit;
             do
             {
-                Console.WriteLine("Hello!\nDo you want work with : \n1) Square \n2) Rectangle \n3) Circle");
+                Console.WriteLine("\nDo you want work with : \n1) Square \n2) Rectangle \n3) Circle");
                 string subkey = Console.ReadLine();
                 switch(subkey)
                 {
@@ -147,7 +126,7 @@ namespace Abstract_Shape
                 figure[i].CalculatePerimetr();
                 figure[i].CalculateArea();
 
-                i++;
+                i++; 
                 
                 Console.WriteLine("Continue? (y/n)");
                 exit = Console.ReadLine();
